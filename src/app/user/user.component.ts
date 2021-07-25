@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
+  public githubUserQuery!: string;
+
   constructor() { }
+
+  public searchUser(){
+    
+  }
 
   ngOnInit(): void {
   }
