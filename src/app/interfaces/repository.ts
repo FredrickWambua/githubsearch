@@ -1,5 +1,5 @@
 export interface Irepository {
     name: string;
-    hrml_url: string;
+    html_url: string;
     description: string;
 }
