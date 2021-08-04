@@ -2,6 +2,7 @@ import { User } from './../models/user';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Repository } from '../models/repository';
 
 @Component({
   selector: 'app-user',
@@ -9,10 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  userName: string ='';
+  userName: string ='FredrickWambua';
   user: any=[]
-  repos: any[]=[];
-  searchType = 'user'
+  repos: any=[];
   errorMsg: string;
 
   constructor(private userservice: UserService, private http:HttpClient) { }
@@ -28,6 +28,7 @@ export class UserComponent implements OnInit {
       this.user = response;
        resolve();
      },
+
      error => {
        this.errorMsg = 'Error encountered';
        reject(error)
@@ -40,8 +41,6 @@ export class UserComponent implements OnInit {
     this.userservice.getUser(this.userName).subscribe(data =>{
       this.user = data
     })
-    console.log(this.userservice.getUser(this.userName).subscribe(data =>{
-      this.user = data
-    }))
+  
   }
 }
